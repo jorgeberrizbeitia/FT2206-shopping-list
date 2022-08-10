@@ -1,5 +1,8 @@
 import { useState } from "react"
 
+import Button from "react-bootstrap/Button";
+import Form from 'react-bootstrap/Form';
+
 function AddForm(props) {
 
   const [name, setName] = useState("")
@@ -38,21 +41,31 @@ function AddForm(props) {
       
       <h4>AddForm</h4>
 
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
 
-        <label htmlFor="name">Nombre:</label>
-        <input type="text" name="name" onChange={handleNameChange} value={name}/>
+      <Form.Group className="mb-3">
+
+      
+
+        <Form.Label htmlFor="name">Nombre:</Form.Label>
+        <Form.Control type="text" name="name" onChange={handleNameChange} value={name}/>
 
         <br />
 
-        <label htmlFor="price">Precio:</label>
-        <input type="number" name="price" onChange={handlePriceChange} value={price}/>
+        <Form.Label htmlFor="price">Precio:</Form.Label>
+        <Form.Control type="number" name="price" onChange={handlePriceChange} value={price}/>
 
         <br />
 
-        <button>Agregar</button>
+        <Button
+        type="submit"
+        variant="success">
+          Agregar
+        </Button>
 
-      </form>
+        </Form.Group>
+
+      </Form>
 
 
 
