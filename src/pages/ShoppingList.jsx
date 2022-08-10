@@ -13,11 +13,23 @@ const testProducts = [
 function ShoppingList() {
 
   const [products, setProducts] = useState(testProducts)
+  const [isFormShowing, setIsFormShowing] = useState(false)
 
   const addNewProductToList = (product) => {
     console.log(product)
 
     setProducts( [...products, product] )
+    // setIsFormShowing(false) // opcionalmente aqui
+    toggleFormShowing() // opcionalmente invocar la funcion
+  }
+
+  const toggleFormShowing = () => {
+    // if (isFormShowing === true) {
+    //   setIsFormShowing(false)
+    // } else {
+    //   setIsFormShowing(true)
+    // }
+    setIsFormShowing(!isFormShowing)
 
   }
 
@@ -26,7 +38,10 @@ function ShoppingList() {
       
       <h2>Lista de Compra</h2>
 
-      <AddForm addNewProductToList={addNewProductToList}/>
+      <button onClick={toggleFormShowing}>{isFormShowing === true ? "Ocultar Formulario" : "Mostrar Formulario"}</button>
+
+      {/* <AddForm addNewProductToList={addNewProductToList}/> */}
+      {isFormShowing === true ? <AddForm addNewProductToList={addNewProductToList} setIsFormShowing={setIsFormShowing}/> : null}
 
       <hr />
 

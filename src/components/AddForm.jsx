@@ -26,6 +26,11 @@ function AddForm(props) {
     props.addNewProductToList(productToAdd)
     // quiero enviar esta informacion al estado products
     // quiero actualizar el estado products con este obj
+
+    // limpiar los campos
+    setName("")
+    setPrice(0)
+    // props.setIsFormShowing(false) // opcionalmente aqui
   }
 
   return (
